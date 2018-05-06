@@ -5,20 +5,20 @@ const button = document.getElementById('button');
 
 let lives = 3;
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * 10 + 1);
-}
-
 button.addEventListener('click', validateInput);
+
 game.addEventListener('mousedown', function(e) {
   if(e.target.className == 'new-game') {
     window.location.reload();
   }
 });
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * 10 + 1);
+}
+
 function validateInput() {
   let guess = document.getElementById('guess');
-  console.log(Number(guess.value))
   if(Number(guess.value) > 0 && Number(guess.value) <= 10) {
     checkInput(guess);
   } else {
@@ -33,7 +33,6 @@ function checkInput(guess) {
     loose(guess);
   }
 }
-console.log(number)
 
 function win(guess) {
   printMessage(`${guess.value} is correct!`, 'green');
